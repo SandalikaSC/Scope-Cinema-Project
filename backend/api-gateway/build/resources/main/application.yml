@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    gateway:
+      routes[0]:
+        id: discovery-server
+        uri: http://localhost:8761
+        predicates[0]: Path=/eureka/web
+        filters[0]: SetPath=/
+      routes[1]:
+        id: discovery-server-static
+        uri: http://localhost:8761
+        predicates[0]: Path=/eureka/**
+      routes[2]:
+        id: auth-service
+        uri: lb://auth-service
+#        predicates[1]: Path=/api/auth/**
+        predicates[0]: Path=/api/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+          cors-configurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - PATCH
+              allowedHeaders:
+                - "*"
+  application:
+    name: api-gateway
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        cloud:
+          gateway:
+            route:
+              RouteDefinitionLocator: INFO
+            nodeValue: TRACE
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
