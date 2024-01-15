@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/backend.auth-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/backend.auth-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backend.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie-service/backend.movie-service.iml" filepath="$PROJECT_DIR$/.idea/modules/movie-service/backend.movie-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie-service/backend.movie-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/movie-service/backend.movie-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service/backend.reservation-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend.test.iml" filepath="$PROJECT_DIR$/.idea/modules/backend.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/movie-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/movie-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/movie-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reservation-service/reservation-service.iml" filepath="$PROJECT_DIR$/reservation-service/reservation-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reservation-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/reservation-service.test.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,81 @@
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: scope
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 0526
+      PGDATA: /data/postgres
+    volumes:
+      - ./postgres-order:/data/postgres
+    expose:
+      - "5431"
+    ports:
+      - "5431:5431"
+    command: -p 5431
+    restart: always
+
+
+  auth-service:
+    image: auth-service
+    container_name: auth_container
+#    ports:
+#      - "8090:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5431/scope
+      SPRING_PROFILES_ACTIVE : docker
+    depends_on:
+      - db
+      - discovery-server
+      - api-gateway
+    restart: always
+
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.0.1
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+#  db :
+#    image: postgres
+#    container_name: postgres_con
+#    ports:
+#      - "5433:5432"
+#    expose:
+#      - "5433"
+#    command: -p 5433
+#    environment:
+#      - POSTGRES_DB=user
+#      - POSTGRES_PASSWORD=0526
+#      - POSTGRES_USER=postgres
+#    volumes:
+#      - /home/sandalika/Documents/Important/postgres_container_data:/var/lib/postgresql/data
+#    restart: always
+
+
+  discovery-server:
+    image: discovery-server-image
+    container_name: discovery-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  api-gateway:
+    image: api-gateway-image
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY= TRACE
+    depends_on:
+      - discovery-server
+
